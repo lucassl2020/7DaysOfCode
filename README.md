@@ -9,7 +9,7 @@ Desafios da Alura que ocorrem em um período de 7 dias.
 
 ## JS e DOM
 
-* Desafio JS e DOM com a Matheus Castiglioni: https://7daysofcode.io/matricula/javascript-e-dom
+* Desafio JS e DOM com o Matheus Castiglioni: https://7daysofcode.io/matricula/javascript-e-dom
 
 * [Projeto](./JS%20e%20DOM); 
 
