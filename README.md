@@ -5,11 +5,11 @@ Desafios da Alura que ocorrem em um período de 7 dias.
 
 * Desafio HTML e CSS com a Giovanna Moeller: https://7daysofcode.io/matricula/html-css
 
-* [Projeto](./"HTML e CSS"); 
+* [Projeto](./HTML%20e%20CSS); 
 
 ## JS e DOM
 
 * Desafio JS e DOM com a Matheus Castiglioni: https://7daysofcode.io/matricula/javascript-e-dom
 
-* [Projeto](./"JS e DOM"); 
+* [Projeto](./JS%20e%20DOM); 
 
