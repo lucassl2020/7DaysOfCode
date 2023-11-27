@@ -7,11 +7,40 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Já no primeiro dia, você irá preparar a estrutura base da sua aplicação, 
-        criando um formulário básico, vinculando seu evento de submissão a uma 
-        função no JavaScript e percorrendo a árvore do DOM 
-        para capturar os elementos inseridos e imprimi-los.  -->
-    
+    <header class="cabecalho">
+        <h1>Meus aniversários</h1>
+    </header>
+
+    <main class="conteudo-principal">
+        <form class="formulario" action="">
+            <label class="border-round font-size-bigger" for="nome">
+                Nome da pessoa (<span>campo obrigatório</span>)
+                <input class="border-round 
+                        font-size-bigger 
+                        padding-bigger
+                        border-none" 
+                    id="nome" type="text" placeholder="Digite o nome da pessoa aqui, por exemplo: João ou Maria" required> 
+            </label>
+            <label class="border-round font-size-bigger" for="data-nascimento">
+                Data de nascimento (<span>campo obrigatório</span>)
+                <input class="border-round 
+                    font-size-bigger
+                    padding-bigger
+                    border-none"
+                id="data-nascimento" type="date" required>
+            </label>    
+
+            <button class="border-round 
+                font-size-bigger
+                border-none"
+            id="btn-submit">
+                Salvar
+            </button>
+        </form>
+
+        <p id="print"></p>
+    </main>
+
     <script src="scripts/main.js"></script>
 </body>
 </html>
