@@ -1,0 +1,79 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.cabecalho{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(56, 136, 255);
+    color: white;
+    height: 20vh;
+}
+
+.conteudo-principal{
+    padding: 0 5vw;
+}
+
+.formulario{
+    margin: 30px 0px;
+}
+
+.formulario label{
+    display: block;
+    margin-bottom: 25px;
+    color: rgb(27, 27, 27)
+}
+
+.formulario label span{
+    color: gray
+}
+
+.formulario label input{
+    display: block;
+    width: 60vw;
+    margin-top: 5px;
+    background-color: rgb(235, 235, 235);
+}
+
+.formulario label input::placeholder{
+    color:black;
+}
+
+.formulario button{
+    background-color: rgb(0, 204, 153);
+    color: white;
+    padding: 10px 30px;
+}
+
+.formulario button:hover{
+    background-color: rgb(0, 189, 142);
+}
+
+.formulario button:active{
+    background-color: rgb(0, 163, 122);
+}
+
+.print{
+    display: none;
+}
+
+/* MODIFIERS */
+.border-round{
+    border-radius: 0.3em;
+}
+
+.padding-bigger{
+    padding: 10px;
+}
+
+.font-size-bigger{
+    font-size: 1.2em;
+}
+
+.border-none{
+    border: none;
+}
