@@ -19,8 +19,7 @@
                         font-size-bigger 
                         padding-bigger
                         border-none" 
-                    id="nome" type="text" placeholder="Digite o nome da pessoa aqui, por exemplo: João ou Maria"
-                    minlength="3" maxlength="120" required> 
+                    id="nome" type="text" placeholder="Digite o nome da pessoa aqui, por exemplo: João ou Maria"> 
             </label>
             <label class="border-round font-size-bigger" for="data-nascimento">
                 Data de nascimento (<span>campo obrigatório</span>)
@@ -28,7 +27,7 @@
                     font-size-bigger
                     padding-bigger
                     border-none"
-                id="data-nascimento" type="date" required>
+                id="data-nascimento" type="date">
             </label>    
 
             <button class="border-round 
@@ -41,6 +40,14 @@
 
         <p id="print"></p>
     </main>
+
+    <div class="modal-container">
+        <div class="modal">
+            <h2>ERROR</h2>
+            <p id="error-message"></p>
+            <button id="close">Close me</button>
+        </div>
+    </div>
 
     <script src="scripts/main.js"></script>
 </body>

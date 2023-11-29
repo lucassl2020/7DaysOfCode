@@ -5,6 +5,10 @@
     font-family: sans-serif;
 }
 
+button{
+    padding: 5px;
+}
+
 .cabecalho{
     display: flex;
     justify-content: center;
@@ -59,6 +63,36 @@
 
 .print{
     display: none;
+}
+
+.modal-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.3);
+    opacity: 0%;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.modal{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: rgb(239, 108, 108);
+    box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.35);
+    width: 40vw;
+    text-align: center;
+    padding: 30px;
+}
+
+#error-message{
+    font-size: 1.1em;
 }
 
 /* MODIFIERS */
