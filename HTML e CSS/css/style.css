@@ -30,7 +30,6 @@
 }
 
 .navBar__menu a{
-    color: var(--text-color);
     text-decoration: none;
     margin-right: 2rem;
 }
@@ -47,7 +46,6 @@
     background: none;
     border: none;
     border-radius: 0.5rem;
-    color: var(--text-color);
 }
 
 .botao:hover{
@@ -86,7 +84,6 @@
 }
 
 .cabecalho__span{
-    color: var(--main-color);
     font-weight: 600;
 }
 
@@ -94,12 +91,10 @@
     font-size: 3rem;
     margin: 24px 0;
     font-weight: 600;
-    color: var(--title-color);
 }
 
 .cabecalho__descricao{
     font-size: 1.3rem;
-    color: var(--text-color);
     width: 65vw;
     text-align: center;
 }
@@ -128,17 +123,14 @@
 .metricas__div h2{
     font-size: 3.75rem;
     font-weight: 600;
-    color: var(--main-color);
 }
 
 .metricas__div h4{
     margin: 12px 0px 8px 0px;
-    color: var(--title-color);
     font-size: 1.125rem;
 }
 
 .metricas__div p{
-    color: var(--text-color);
     font-size: 1rem;
 }
 
@@ -154,7 +146,6 @@
 }
 
 .vagas__talentos span{
-    color: var(--main-color);
     border-radius: 1rem;
     background: rgba(142, 36, 36, 0.05);
     padding: 4px 12px;
@@ -163,11 +154,9 @@
 .vagas__talentos h2{
     margin: 16px 0px 20px 0px;
     font-size: 2.25rem;
-    color: var(--title-color);
 }
 
 .vagas__talentos p{
-    color: var(--text-color);
     font-size: 1.25rem;
 }
 
@@ -192,7 +181,6 @@
 }
 
 .vagas-abertas h4{
-    color: var(--title-color);
     font-size: 1.25rem;
     margin-bottom: 8px;
     font-weight: 500;
@@ -215,14 +203,12 @@
 }
 
 .vagas-abertas div h5{
-    color: var(--title-color);
     font-size: 1.125rem;
     font-weight: 500;
 }
 
 .vagas-abertas div p{
     margin-top: 32px;
-    color: var(--text-color);
     font-size: 1rem;
 }
 
@@ -244,26 +230,22 @@
 
 .depoimentos div span{
     font-size: 0.875rem;
-    color: var(--main-color);
     font-weight: 600;
 }
 
 .depoimentos div h2{
-    color: var(--title-color);
     margin-top: 16px;
     margin-bottom: 32px;
     font-size: 2.25rem;
 }
 
 .depoimentos div h4{
-    color: var(--title-color);
     margin-top: 16px;
     margin-bottom: 4px;
     font-size: 1rem;
 }
 
 .depoimentos div p{
-    color: var(--text-color);
     font-size: 0.875rem;
 }
 
@@ -276,13 +258,11 @@
 }
 
 .formulario h2{
-    color:var(--title-color);
     font-weight: 600;
     font-size: 2.25rem;
 }
 
 .formulario p{
-    color: var(--text-color);
     font-size: 1.25rem;
     font-weight: 400;
     margin-top: 20px;
@@ -314,4 +294,18 @@
     font-weight: 400;
     color: #98A2B3;
     margin-top: 32px;
+}
+
+
+/* MODIFIERS */
+.font-main-color{
+    color: var(--main-color);
+}
+
+.font-title{
+    color: var(--title-color);
+}
+
+.font-text{
+    color: var(--text-color);
 }
