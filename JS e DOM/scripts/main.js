@@ -12,35 +12,50 @@ function formatDate(date){
     return date.split('-').reverse().join('/');
 }
 
-function validateData(data){
+function validatePessoa(data){
     let dataIsValid = true;
     const errorMessage = document.getElementById("error-message");
 
     if (data.nome.length === 0 || data.dataNascimento.length === 0){
         errorMessage.textContent = "Preencha todos os campos";
         dataIsValid = false;
-    }else if (data.nome.length < 3 || 120 <  data.nome.length){
-        errorMessage.textContent = "O nome deve possuir de 3 a 120 caracteres";
-        dataIsValid = false;
     }else if (!(/^[a-zA-Z\s]+$/.test(data.nome))){
         errorMessage.textContent = "O nome deve conter apenas letras e espaços";
+        dataIsValid = false;
+    }else if (data.nome.length < 3 || 120 <  data.nome.length){
+        errorMessage.textContent = "O nome deve possuir de 3 a 120 caracteres";
         dataIsValid = false;
     }
     
     return dataIsValid;
 }
 
+function savePessoa(data){
+    const pessoasVetor = JSON.parse(localStorage.getItem('pessoas')) || [];
+
+    pessoasVetor.push(data);
+
+    localStorage.setItem('pessoas', JSON.stringify(pessoasVetor));
+}
+
 function showData(event){
     event.preventDefault();
     
     const data = collectData();
-    const [nome, dataNascimento] = [data.nomeElement.value, formatDate(data.dataNascimentoElement.value)];
+    const pessoa = {nome: data.nomeElement.value, 
+                    dataNascimento: formatDate(data.dataNascimentoElement.value)};
 
-    if (validateData({nome, dataNascimento})){
-        const textElement = document.getElementById("print");
+    if (validatePessoa(pessoa)){
+        savePessoa(pessoa);
 
-        textElement.textContent = `${nome} nasceu em ${dataNascimento}`; 
-        textElement.style.display = "block";
+        var table = document.getElementById("tabela-pessoas").getElementsByTagName('tbody')[0];
+        var newRow = table.insertRow(table.rows.length);
+        var cell1 = newRow.insertCell(0);
+        var cell2 = newRow.insertCell(1);
+        // var cell3 = newRow.insertCell(2);
+        cell1.innerHTML = pessoa.nome;
+        cell2.innerHTML = pessoa.dataNascimento;
+        // cell3.innerHTML = "";
     }else{
         const modalContainer = document.getElementsByClassName("modal-container")[0];
 
