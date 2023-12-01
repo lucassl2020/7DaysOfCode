@@ -52,7 +52,6 @@ function updatePessoa(pessoa){
 }
 
 function removePessoa(pessoa){
-    console.log(pessoa);
     const pessoasVetor = JSON.parse(localStorage.getItem('pessoas'));
 
     for(let i=pessoa.id; i<pessoasVetor.length-1; i++){
@@ -62,8 +61,6 @@ function removePessoa(pessoa){
     pessoasVetor.pop();
 
     localStorage.setItem('pessoas', JSON.stringify(pessoasVetor));
-
-    location.reload();
 }
 
 function insertPessoaInTable(pessoa){
@@ -108,6 +105,7 @@ function insertPessoaInTable(pessoa){
             if(pessoaIsValid){
                 updatePessoa(pessoa);
             }else{
+                loadTable(table);
                 showModalError(errorMessage);
             }
         }
@@ -116,6 +114,7 @@ function insertPessoaInTable(pessoa){
     btnRemover.textContent = "Remover";
     btnRemover.addEventListener('click', () =>{
         removePessoa(pessoa);
+        loadTable(table);
     });
     // btnRemover.style.backgroundColor = "rgb(239, 108, 108)";
     btnRemover.classList.add("border-none");
@@ -152,7 +151,11 @@ function handleClickEvent(event){
     }    
 }
 
-function loadTable(){
+function loadTable(table=undefined){
+    if(table){
+        table.innerHTML = '';
+    }
+
     const pessoas = JSON.parse(localStorage.getItem('pessoas'));
 
     pessoas.forEach(insertPessoaInTable);
@@ -163,11 +166,10 @@ const btnCloseModal = document.querySelector(".modal button");
 
 btnSubmit.addEventListener('click', handleClickEvent);
 btnCloseModal.addEventListener('click', function(){
-    location.reload();
-    // const modalContainer = document.getElementsByClassName("modal-container")[0];
+    const modalContainer = document.getElementsByClassName("modal-container")[0];
 
-    // modalContainer.style.opacity = "0%";
-    // modalContainer.style.pointerEvents = "none";
+    modalContainer.style.opacity = "0%";
+    modalContainer.style.pointerEvents = "none";
 });
 
 loadTable();
