@@ -46,9 +46,24 @@ function savePessoa(pessoa){
 function updatePessoa(pessoa){
     const pessoasVetor = JSON.parse(localStorage.getItem('pessoas'));
 
-    pessoasVetor[pessoa.id - 1] = pessoa;
+    pessoasVetor[pessoa.id] = pessoa;
 
     localStorage.setItem('pessoas', JSON.stringify(pessoasVetor));
+}
+
+function removePessoa(pessoa){
+    console.log(pessoa);
+    const pessoasVetor = JSON.parse(localStorage.getItem('pessoas'));
+
+    for(let i=pessoa.id; i<pessoasVetor.length-1; i++){
+        pessoasVetor[i].nome = pessoasVetor[i+1].nome;
+        pessoasVetor[i].dataNascimento = pessoasVetor[i+1].dataNascimento;
+    }
+    pessoasVetor.pop();
+
+    localStorage.setItem('pessoas', JSON.stringify(pessoasVetor));
+
+    location.reload();
 }
 
 function insertPessoaInTable(pessoa){
@@ -57,12 +72,13 @@ function insertPessoaInTable(pessoa){
     const nomeElement = newRow.insertCell(0);
     const dataNascimentoElement = newRow.insertCell(1);
     const botoesElement = newRow.insertCell(2);
-    const botao = document.createElement('button');
+    const btnEditar = document.createElement('button');
+    const btnRemover = document.createElement('button');
     
-    botao.textContent = "Editar";
-    botao.addEventListener('click', () => {
-        if(botao.textContent === "Editar"){
-            botao.textContent = "Salvar";
+    btnEditar.textContent = "Editar";
+    btnEditar.addEventListener('click', () => {
+        if(btnEditar.textContent === "Editar"){
+            btnEditar.textContent = "Salvar";
 
             nomeElement.contentEditable = true;
             nomeElement.style.backgroundColor = "rgb(235, 235, 235)";
@@ -70,21 +86,21 @@ function insertPessoaInTable(pessoa){
             dataNascimentoElement.contentEditable = true;
             dataNascimentoElement.style.backgroundColor = "rgb(235, 235, 235)";
 
-            botao.style.color = "white";
-            botao.classList.add("border-none");
-            botao.classList.add("border-round");
-            botao.classList.add("botao-verde");
+            btnEditar.style.color = "white";
+            btnEditar.classList.add("border-none");
+            btnEditar.classList.add("border-round");
+            btnEditar.classList.add("botao-verde");
         }else{          
-            botao.textContent = "Editar";
-            botao.style.color = "black";
-            botao.classList = [];
+            btnEditar.textContent = "Editar";
+            btnEditar.style.color = "black";
+            btnEditar.classList = [];
 
             nomeElement.contentEditable = false;
             nomeElement.style.backgroundColor = "white";
 
             dataNascimentoElement.contentEditable = false;
             dataNascimentoElement.style.backgroundColor = "white";
-
+            
             pessoa.nome = nomeElement.textContent;
             pessoa.dataNascimento = dataNascimentoElement.textContent;
             const {pessoaIsValid, errorMessage} = validatePessoa(pessoa);
@@ -97,9 +113,18 @@ function insertPessoaInTable(pessoa){
         }
     });
 
+    btnRemover.textContent = "Remover";
+    btnRemover.addEventListener('click', () =>{
+        removePessoa(pessoa);
+    });
+    // btnRemover.style.backgroundColor = "rgb(239, 108, 108)";
+    btnRemover.classList.add("border-none");
+    btnRemover.classList.add("border-round");
+    btnRemover.classList.add("botao-vermelho");
+
     nomeElement.textContent = pessoa.nome;
     dataNascimentoElement.textContent = pessoa.dataNascimento;
-    botoesElement.appendChild(botao);
+    botoesElement.append(btnEditar, btnRemover);
 }
 
 function showModalError(errorMessage){
@@ -138,10 +163,11 @@ const btnCloseModal = document.querySelector(".modal button");
 
 btnSubmit.addEventListener('click', handleClickEvent);
 btnCloseModal.addEventListener('click', function(){
-    const modalContainer = document.getElementsByClassName("modal-container")[0];
+    location.reload();
+    // const modalContainer = document.getElementsByClassName("modal-container")[0];
 
-    modalContainer.style.opacity = "0%";
-    modalContainer.style.pointerEvents = "none";
+    // modalContainer.style.opacity = "0%";
+    // modalContainer.style.pointerEvents = "none";
 });
 
 loadTable();
