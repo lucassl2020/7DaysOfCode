@@ -1,5 +1,5 @@
 # 7 Days of Code - Alura
-Desafios da Alura que ocorrem em um período de 7 dias.
+Desafios da Alura que ocorrem em um período de 7 dias. Eles disponibilizam todos os desafios no site: https://7daysofcode.io/
 
 ## HTML e CSS
 
